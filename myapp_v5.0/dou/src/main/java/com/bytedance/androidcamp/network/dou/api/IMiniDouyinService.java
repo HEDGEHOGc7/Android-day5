@@ -14,9 +14,7 @@ import retrofit2.http.Query;
 public interface IMiniDouyinService {
     // TODO 7: Define IMiniDouyinService
     String mURL = "http://test.androidcamp.bytedance.com/mini_douyin/invoke/";
-
-    @GET("video")
-    Call<GetVideo> getVideos();
+    @Multipart
     @POST("video")
     Call<PostVideo>postVideo(
             @Query("student_id") String studentId,
@@ -24,4 +22,6 @@ public interface IMiniDouyinService {
             @Part MultipartBody.Part image,
             @Part MultipartBody.Part video
     );
+    @GET("video")
+    Call<GetVideo> getVideos();
 }
